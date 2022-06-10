@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-        <div class="row">
+        <div class="row" >
             <FilmCard class="col-12 col-sm-6 col-md-3 col-lg-2" v-for="(film,index) in dataSelect.films" :key="index" :film="film"/>
         </div>
     </div>
@@ -16,6 +16,8 @@ export default {
     data() {
         return {
             dataSelect,
+            FilmCard,
+            
         
         };
     },
