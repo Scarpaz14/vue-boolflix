@@ -2,28 +2,27 @@
   <section>
     <div class="container">
         <div class="row" >
-            <FilmCard class="col-12 col-sm-6 col-md-3 col-lg-2" v-for="(film,index ) in dataSelect.films" :key="index" :film="film"/>
+            <SeriesCard class="col-12 col-sm-6 col-md-3 col-lg-2" v-for="(serie,index) in dataSelect.series" :key="index" :serie="serie"/>
         </div>
     </div>
   </section>
 </template>
 
 <script>
-
-import FilmCard from '../commons/FilmCard.vue'
+import SeriesCard from '../commons/Seriescard.vue'
 import dataSelect from '../shared/dataSelect';
 export default {
-    name: 'SectionFilm',
+    name: 'SectionSeries',
     data() {
         return {
             dataSelect,
-            FilmCard,
+            SeriesCard
             
         
         };
     },
     components: {
-        FilmCard,
+        SeriesCard
     },
     
     } 

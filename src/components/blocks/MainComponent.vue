@@ -1,17 +1,20 @@
 <template>
  <main>
      <SectionFilm/>
+     <SectionSeries/>
  </main>
 </template>
 
 <script>
 import SectionFilm from "../sections/SectionFilm.vue";
+import SectionSeries from "../sections/SectionSeries.vue";
 
 
 export default {
     name:'MainComponent',
     components: { 
-        SectionFilm 
+        SectionFilm,
+        SectionSeries, 
     }
 }
 </script>
