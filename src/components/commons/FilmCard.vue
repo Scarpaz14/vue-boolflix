@@ -1,6 +1,7 @@
 <template>
   <div class="card-song my-5 mx-3 py-4">
-      <img class="img-fluid" :src="PrefixImg(film.poster_path)" :alt="film.author">
+        <img class="img-fluid" src="https://download.logo.wine/logo/Netflix/Netflix-Logo.wine.png" alt="" v-if="film.poster_path==null">
+      <img class="img-fluid" :src="PrefixImg(film.poster_path)" :alt="film.author" v-else>
       <h3>{{film.title}}</h3>
       <p>{{film.original_title}}</p>
       <flag class="flags" :iso="film.original_language"/>
