@@ -17,35 +17,50 @@ export default {
         }
     },
 
-     methods:{
+    methods:{
          searchFilm(){
             axios.get('https://api.themoviedb.org/3/search/movie', {
             params: {
-            api_key: 'e99307154c6dfb0b4750f6603256716d',
-            query: this.dataSelect.filmsSelected,
-            language: 'it-IT'
+                api_key: 'e99307154c6dfb0b4750f6603256716d',
+                query: this.dataSelect.filmsSelected,
+                language: 'it-IT'
             }
         }).then((response) => {
-        this.dataSelect.films = response.data.results;
-        console.log(response.data.results)
+            response.data.results.filter(obj => {
+                if(obj.original_language == "en"){
+                    return  obj.original_language = "gb"
+                } else if(obj.original_language == "ja"){
+                    return obj.original_language = "jp"
+                }
+                this.dataSelect.films = response.data.results;
+                console.log(response.data.results)
+            });
         }).catch((error) => {
-        console.log(error);
-        })
+            console.log(error);
+        }),
+
             axios.get('https://api.themoviedb.org/3/search/tv', {
             params: {
-            api_key: 'e99307154c6dfb0b4750f6603256716d',
-            query: this.dataSelect.filmsSelected,
-            language: 'it-IT'
+                api_key: 'e99307154c6dfb0b4750f6603256716d',
+                query: this.dataSelect.filmsSelected,
+                language: 'it-IT'
             }
         }).then((response) => {
-        this.dataSelect.series = response.data.results;
-        console.log(response.data.results)
+            response.data.results.filter(obj => {
+                if(obj.original_language == "en"){
+                    return  obj.original_language = "gb"
+                } else if(obj.original_language == "ja"){
+                    return obj.original_language = "jp"
+                }
+                this.dataSelect.series = response.data.results;
+                console.log(response.data.results)
+            });
         }).catch((error) => {
-        console.log(error);
+            console.log(error);
         })
         },
-        },  
-    }
+    },  
+}
 
 </script>
 

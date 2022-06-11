@@ -20,12 +20,13 @@ export default {
 
     methods:{
         PrefixImg(prefix){
-            let codeimg = "https://image.tmdb.org/t/p/w500"
+            let codeimg = "https://image.tmdb.org/t/p/w500";
             return codeimg + prefix;
         },
 
         number(numberrounded){
-            return Math.round(numberrounded)
+           numberrounded = numberrounded/2;
+            return Math.ceil(numberrounded);
         },
     },
 
