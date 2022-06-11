@@ -22,9 +22,13 @@ export default {
 <style lang="scss" scoped>
 
 main{
-    background-color: #1e2d3b;
-    min-height: 100vh
-
+    height: calc(100vh);
+    padding-top: 100px;
+    color: white;
+    z-index: 10;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: auto;
 }
 
 </style>

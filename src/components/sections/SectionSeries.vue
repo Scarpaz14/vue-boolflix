@@ -1,9 +1,9 @@
 <template>
   <section>
     <div class="container">
-        <h1>SERIE TV:</h1>
-        <div class="row" >
-            <SeriesCard class="col-12 col-sm-6 col-md-3 col-lg-2" v-for="(serie,index) in dataSelect.series" :key="index" :serie="serie"/>
+        <div class="row">
+            <h1>Serie TV:</h1>
+            <SeriesCard class="col-12 col-sm-6 col-md-3 col-lg-3" v-for="(serie,index) in dataSelect.series" :key="index" :serie="serie"/>
         </div>
     </div>
   </section>

@@ -1,7 +1,7 @@
 <template>
 <header>
     <div class="container-fluid d-flex align-items-center">
-        <img class="img-fluid" src="https://download.logo.wine/logo/Netflix/Netflix-Logo.wine.png" alt="">
+        <img class="img-fluid" src="../../assets/image/logo.png" alt="">
         <SearchBar/>
     </div>
 
@@ -23,10 +23,13 @@ export default {
 <style lang="scss" scoped>
 
 header{
-    background-color:#303030;
-    height: 80px;
+    background-color:black;
+    height: 100px;
     display: flex;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .container-fluid{

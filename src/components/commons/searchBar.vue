@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="searchFilm">
         <input class="search mx-3 py-1" type="search" placeholder="Search" aria-label="Search" v-model="dataSelect.filmsSelected">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Film</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 </template>
 
@@ -28,9 +28,9 @@ export default {
         }).then((response) => {
             response.data.results.filter(obj => {
                 if(obj.original_language == "en"){
-                    return  obj.original_language = "gb"
+                    obj.original_language = "gb"
                 } else if(obj.original_language == "ja"){
-                    return obj.original_language = "jp"
+                     obj.original_language = "jp"
                 }
                 this.dataSelect.films = response.data.results;
                 console.log(response.data.results)
@@ -48,9 +48,9 @@ export default {
         }).then((response) => {
             response.data.results.filter(obj => {
                 if(obj.original_language == "en"){
-                    return  obj.original_language = "gb"
+                      obj.original_language = "gb"
                 } else if(obj.original_language == "ja"){
-                    return obj.original_language = "jp"
+                     obj.original_language = "jp"
                 }
                 this.dataSelect.series = response.data.results;
                 console.log(response.data.results)
@@ -65,6 +65,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+input{
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: lightgray;
+    max-width: 50%;
+}
+
+.fa-magnifying-glass{
+    color:white
+}
+
 
 
 </style>
