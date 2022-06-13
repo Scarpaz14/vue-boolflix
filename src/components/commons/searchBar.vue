@@ -30,7 +30,7 @@ export default {
                 if(obj.original_language == "en"){
                     obj.original_language = "gb"
                 } else if(obj.original_language == "ja"){
-                     obj.original_language = "jp"
+                    obj.original_language = "jp"
                 }
                 this.dataSelect.films = response.data.results;
                 console.log(response.data.results)
@@ -48,9 +48,9 @@ export default {
         }).then((response) => {
             response.data.results.filter(obj => {
                 if(obj.original_language == "en"){
-                      obj.original_language = "gb"
+                    obj.original_language = "gb"
                 } else if(obj.original_language == "ja"){
-                     obj.original_language = "jp"
+                    obj.original_language = "jp"
                 }
                 this.dataSelect.series = response.data.results;
                 console.log(response.data.results)

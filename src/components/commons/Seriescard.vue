@@ -10,7 +10,15 @@
             <small>Original title:</small><h3>{{serie.original_name}}</h3>
             <small>Overwiew:</small><p class="overview">{{serie.overview}}</p>
             <small>Language:</small><flag class="flags" :iso="serie.original_language"/>
-            <div><i class="fa-solid fa-star"></i><small>{{number(serie.vote_average)}}</small></div>
+            <div class=" vote mt-2">
+                <small>Vote:</small>
+                <span v-for="star in number(serie.vote_average)" :key="star">
+                <i class="fa-solid fa-star"></i>
+                </span>
+                <span v-for="star in ( 5 - number(serie.vote_average))" :key="star">
+                <i class="fa-regular fa-star"></i>
+                </span>
+            </div>
         </div>
     </div>
 
@@ -22,8 +30,6 @@ export default {
     props:{
         serie: Object,
     },
-
-    
 
     methods:{
         PrefixImg(prefix){
@@ -42,37 +48,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/mixins.scss';
 
-.card{
-    color: white;
-    background-color: black;
-    padding: 0;
-    cursor: pointer;
+.card {
+   @include card
 }
-.hover-container{
-    display: none;
-     height: 100%;
-    width: 100%;
-    transition: 5s;
-    position: absolute;
-    overflow: hidden;
+
+.hover-container{ 
+   @include hover-container
 }
  .card:hover .hover-container{
-    display: block !important;
-    background-color: black; opacity: 0.8;
+    @include in-hover
  }
 
  .card:hover{
-    transition: 1s;
-    transform: scale(1.05);
-    z-index: 100;
+    @include card-hover 
  }
 
  .flags{
-    margin-left: 5px;
-    font-size: 30px;
-    vertical-align: middle;
-    border-radius: 50%;
+    @include flags
+ }
+
+ .vote{
+
+    .fa-star{
+        color:yellow
+    }
  }
 
 

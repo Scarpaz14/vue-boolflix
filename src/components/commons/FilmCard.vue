@@ -9,8 +9,16 @@
             <small>Title:</small><h3>{{film.title}}</h3>
             <small>Original title:</small><h3>{{film.original_title}}</h3>
             <small>Overwiew:</small><p class="overview">{{film.overview}}</p>
-             <small>Language:</small><flag class="flags" :iso="film.original_language"/>
-            <div><i class="fa-solid fa-star"></i><small>{{number(film.vote_average)}}</small></div>
+            <small>Language:</small><flag class="flags" :iso="film.original_language"/>
+            <div class="mt-2">
+                <small>Vote:</small>
+                <span v-for="star in number(film.vote_average)" :key="star">
+                <i class="fa-solid fa-star"></i>
+                </span>
+                <span v-for="star in ( 5 - number(film.vote_average))" :key="star">
+                <i class="fa-regular fa-star"></i>
+                </span>
+            </div>
         </div>
     </div>
 </template>
@@ -21,8 +29,6 @@ export default {
     props:{
         film: Object,
     },
-
-    
 
     methods:{
         PrefixImg(prefix){
@@ -35,45 +41,28 @@ export default {
         },
 
     },
-
-    
-
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/mixins.scss';
 
-.card{
-    color: white;
-     background-color: black;
-    padding: 0;
+.card {
+   @include card
 }
 
-.hover-container{
-    display: none;
-     height: 100%;
-    width: 100%;
-    position: absolute;
+.hover-container{ 
+   @include hover-container
 }
  .card:hover .hover-container{
-    display: block;
-    background-color: black; opacity: 0.8;
+    @include in-hover
  }
 
  .card:hover{
-    transition: 1s;
-    transform: scale(1.05);
-    z-index: 100;
+    @include card-hover 
  }
 
- .overview{
-    font-size: 13px;
- }
-
-  .flags{
-    margin-left: 5px;
-    font-size: 30px;
-    vertical-align: middle;
-    border-radius: 50%;
+ .flags{
+    @include flags
  }
 </style>

@@ -1,0 +1,36 @@
+@mixin card {
+    color: white;
+    background-color: black;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+}
+
+@mixin hover-container {
+    display: none;
+    height: 100%;
+    width: 100%;
+    transition: 5s;
+    position: absolute;
+    top:0;
+    left: 0;
+    overflow-y:auto;
+}
+
+@mixin in-hover {
+    display: block;
+    background-color: black; opacity: 0.8;
+}
+
+@mixin card-hover {
+    transition: 1s;
+    transform: scale(1.05);
+    z-index: 100;
+}
+
+@mixin flags {
+    margin-left: 5px;
+    font-size: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+}

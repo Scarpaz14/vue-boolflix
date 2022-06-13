@@ -22,6 +22,8 @@ export default {
     position: absolute;
     left: 0;
     background-image: url(../../assets/image/sfondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: -1;
 }
 </style>
